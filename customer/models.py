@@ -9,5 +9,7 @@ class Customer(AbstractUser):
     fullname = models.CharField(max_length=255, null=False, blank=False)
     email = models.EmailField(null=True, blank=True)
     address = models.TextField()
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
