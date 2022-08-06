@@ -13,3 +13,8 @@ class Customer(AbstractUser):
     is_superuser = models.BooleanField(default=False)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
+
+
+    def __str__(self) -> str:
+        return '{}'.format(self.fullname)
+    
