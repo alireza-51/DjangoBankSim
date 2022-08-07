@@ -35,6 +35,6 @@ class Loan(models.Model):
 
     def save(self, *args, **kwargs) -> None:
         if not self.loan_no:
-            self.loan_no = increment_id_number(Loan, 'loan_no')
+            self.loan_no = increment_id_number(Loan, 'loan_no', digit=8)
         return super().save(*args, **kwargs)
 

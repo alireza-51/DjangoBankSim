@@ -16,7 +16,8 @@ def increment_id_number(model, field:str, digit=10)-> str:
     last = model.objects.all().order_by('id').last()
     if not last:
         return '1' + ("0" * (digit-2)) + '1'
-    id = last[field]
+
+    id = last.__dict__[field]
     new_id = int(id)
     new_id = new_id + 1
     new_id = str(new_id)
