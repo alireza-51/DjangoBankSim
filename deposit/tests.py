@@ -3,6 +3,7 @@ from django.test import TestCase
 from .models import Loan, Deposit
 from customer.models import Customer
 from branch.models import Branch
+from .query import *
 
 
 class DepositTest(TestCase):

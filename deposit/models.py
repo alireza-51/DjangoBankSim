@@ -6,7 +6,7 @@ from utils.default_increment_picker import increment_id_number
 
 
 class Deposit(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='deposits')
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
     account_no = models.CharField(verbose_name="Account number", max_length=15,
         validators=[MinLengthValidator(8),], null=False, blank=False)
@@ -23,7 +23,7 @@ class Deposit(models.Model):
 
 
 class Loan(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='loans')
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
     loan_no = models.CharField(verbose_name="Loan number", max_length=15,
         validators=[MinLengthValidator(5),], null=False, blank=False)
